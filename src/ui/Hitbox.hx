@@ -31,6 +31,7 @@ class Hitbox extends FlxSpriteGroup
 		hitbox.add(add(buttonRight = createhitbox(960, "right")));
 
 		var hitbox_hint:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/hitbox_hint'));
+		hitbox_hint.antialiasing = ClientPrefs.globalAntialiasing;
 		hitbox_hint.alpha = 0.75;
 		add(hitbox_hint);
 	}
