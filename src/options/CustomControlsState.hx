@@ -8,9 +8,9 @@ import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import haxe.Json;
-import android.Hitbox;
-import android.AndroidControls.Config;
-import android.FlxVirtualPad;
+import ui.Hitbox;
+import ui.Mobilecontrols.Config;
+import ui.FlxVirtualPad;
 
 using StringTools;
 
@@ -50,7 +50,8 @@ class CustomAndroidControls extends MusicBeatState
 
 		menuBG = new FlxSprite().loadGraphic(Paths.image('androidcontrols/menu/daMenu'));
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-                menuBG.color = 0xFFea71fd;
+		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
+        menuBG.color = 0xFFea71fd;
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		add(menuBG);
@@ -95,6 +96,7 @@ class CustomAndroidControls extends MusicBeatState
 		var ui_tex = Paths.getSparrowAtlas('androidcontrols/menu/arrows');//thanks Andromeda Engine
 
 		leftArrow = new FlxSprite(inputvari.x - 60, inputvari.y + 50);
+		leftArrow.antialiasing = ClientPrefs.globalAntialiasing;
 		leftArrow.frames = ui_tex;
 		leftArrow.animation.addByPrefix('idle', "arrow left");
 		leftArrow.animation.addByPrefix('press', "arrow push left");
@@ -102,6 +104,7 @@ class CustomAndroidControls extends MusicBeatState
 		add(leftArrow);
 
 		rightArrow = new FlxSprite(inputvari.x + inputvari.width + 10, leftArrow.y);
+		rightArrow.antialiasing = ClientPrefs.globalAntialiasing;
 		rightArrow.frames = ui_tex;
 		rightArrow.animation.addByPrefix('idle', 'arrow right');
 		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
